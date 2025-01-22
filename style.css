@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
+:root {
+  --clr-green-200: hsl(148, 38%, 91%);
+  --clr-green-600: hsl(169, 82%, 27%);
+  --clr-red: hsl(0, 66%, 54%);
+
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-grey-500: hsl(186, 15%, 59%);
+  --clr-grey-900: hsl(187, 24%, 22%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  place-content: center;
+  place-items: center;
+  font-family: "Karla", serif;
+  font-size: 1rem;
+  background-color: var(--clr-green-200);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.color-red {
+  color: hsl(0, 56%, 38%);
+}
+.bg-light-green {
+  background-color: var(--clr-green-200);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--clr-white);
+  max-width: 500px;
+}
+.name-section,
+.radio-btn-section {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.fName-section,
+.lName-section,
+.email-section,
+.message-section,
+.query-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+#fName:hover,
+#lName:hover,
+#email:hover {
+  border: 1px solid var(--clr-green-600);
+}
+input,
+textarea,
+.support-section,
+.enquiry-section,
+.consent-section {
+  display: flex;
+  /* prevent radio button input from growing larger with flex 1 */
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid var(--clr-grey-900);
+  padding: 10px;
+  padding-right: 40px;
+}
+.consent-section {
+  border: none;
+}
+.consent-section label:hover,
+.consent-section input:hover {
+  cursor: pointer;
+}
+
+label {
+  color: var(--clr-grey-900);
+}
+
+.star {
+  color: var(--clr-green-600);
+  padding-left: 4px;
+}
+
+.btn-submit {
+  outline: none;
+  border: none;
+  background-color: var(--clr-green-600);
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+input[type="radio"] {
+  -ms-transform: scale(0.7); /* IE 9 */
+  -webkit-transform: scale(0.7); /* Chrome, Safari, Opera */
+  transform: scale(0.7);
+}
+
+textarea {
+  resize: none;
+  min-height: 100px;
+}
+@media only screen and (max-width: 500px) {
+  form {
+    max-width: 400px;
+
+    margin: 20px;
+  }
+  .name-section,
+  .radio-btn-section,
+  .consent-section {
+    flex-direction: column;
+  }
+  input {
+    flex: 0;
+  }
+  .enquiry-section {
+    margin-top: 10px;
+  }
+  .enquiry-section,
+  .support-section {
+    gap: 20px;
+  }
+  .consent-section {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  textarea {
+    resize: none;
+    min-height: 150px;
+  }
+}

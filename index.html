@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Contact Form | FEM | Ryan Goods</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="" name="form">
+        <h2>Contact Us</h2>
+        <div class="name-section">
+          <div class="fName-section">
+            <label for="">First Name<span class="star">*</span></label>
+            <input type="text" id="fName" class="required-field" />
+            <p class="error hidden color-red">This field is required</p>
+          </div>
+          <div class="lName-section">
+            <label for="">Last Name<span class="star">*</span></label>
+            <input type="text" id="lName" class="required-field" />
+            <p class="error hidden color-red">This field is required</p>
+          </div>
+        </div>
+        <div class="email-section">
+          <label for="email">Email Address<span class="star">*</span></label>
+          <input type="text" id="email" class="required-field" />
+          <p class="hidden">Please enter a valid email address</p>
+          <p class="error hidden color-red">This field is required</p>
+        </div>
+        <div class="query-section">
+          <p>Query Type<span class="star">*</span></p>
+
+          <div class="radio-btn-section">
+            <div class="enquiry-section bg-light-green"" id="enquiry-section">
+              <input type="radio" name="" id="general-enquiry" checked />
+              <label for="general-enquiry">General Enquiry</label>
+            </div>
+            <div class="support-section" id="support-section">
+              <input type="radio" name="" id="support-request" />
+              <label for="support-request">Support Request</label>
+            </div>
+          </div>
+          <p class="hidden color-red">Please select a query type</p>
+        </div>
+        <div class="message-section">
+          <label for="">Message<span class="star">*</span></label>
+          <textarea class="required-field" id="message-text"></textarea>
+        </div>
+        <p class="error hidden color-red">This field is required</p>
+
+        <div class="consent-section">
+          <input type="checkbox" name="" id="submit-checkbox" />
+          <label for="submit-checkbox"
+            >I consent to being contacted by the team
+            <span class="star">*</span>
+          </label>
+        </div>
+        <p class="hidden color-red" id="consent-error">
+          To submit this form, please consent to being contacted
+        </p>
+        <button class="btn-submit" id="btn-submit" type="button">Submit</button>
+        <p class="hidden">Message Sent!</p>
+        <p class="color-red hidden">
+          Thanks for completing the form. We'll be in touch soon!
+        </p>
+      </form>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
