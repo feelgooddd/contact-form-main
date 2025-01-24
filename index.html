@@ -12,12 +12,25 @@
       href="./assets/images/favicon-32x32.png"
     />
 
+    <!-- Email JS Script for Email Service-->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "g4P2FRjRvFuE_d54L",
+        });
+      })();
+    </script>
+
     <title>Contact Form | FEM | Ryan Goods</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="form-container">
-      <form action="" name="form">
+      <form method="" action="" name="form">
         <h2>Contact Us</h2>
         <div class="name-section">
           <div class="fName-section">
@@ -41,16 +54,24 @@
           <p>Query Type<span class="star">*</span></p>
 
           <div class="radio-btn-section">
-            <div class="enquiry-section bg-light-green"" id="enquiry-section">
-              <input type="radio" name="" id="general-enquiry" checked />
+            <div
+              class="query-section__query enquiry-section"
+              id="enquiry-section"
+            >
+              <input type="radio" name="query-selection" id="general-enquiry" />
               <label for="general-enquiry">General Enquiry</label>
             </div>
-            <div class="support-section" id="support-section">
-              <input type="radio" name="" id="support-request" />
+            <div
+              class="query-section__query support-section"
+              id="support-section"
+            >
+              <input type="radio" name="query-selection" id="support-request" />
               <label for="support-request">Support Request</label>
             </div>
           </div>
-          <p class="hidden color-red">Please select a query type</p>
+          <p class="hidden color-red" id="radio-error">
+            Please select a query type
+          </p>
         </div>
         <div class="message-section">
           <label for="">Message<span class="star">*</span></label>
