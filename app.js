@@ -52,7 +52,6 @@ function validateEmail(emailField) {
   var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   console.log(emailField.value);
   if (reg.test(emailField.value) == false) {
-    alert("Invalid Email Address");
     return false;
   }
 
@@ -122,9 +121,7 @@ function sendMail() {
     message: document.getElementById("message-text").value,
   };
 
-  emailjs
-    .send("service_xy4daip", "template_gzw3he8", params)
-    .then(alert("Email Sent"));
+  emailjs.send("service_xy4daip", "template_gzw3he8", params).then();
 }
 
 changeRadioBg();
