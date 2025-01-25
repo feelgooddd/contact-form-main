@@ -29,73 +29,94 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="form-container">
-      <form method="" action="" name="form">
-        <h2>Contact Us</h2>
-        <div class="name-section">
-          <div class="fName-section">
-            <label for="">First Name<span class="star">*</span></label>
-            <input type="text" id="fName" class="required-field" />
+    <main>
+      <div id="success-message-section">
+        <img src="assets/images/icon-success-check.svg" alt="" />
+        <span id="success-message-title">Message Sent!</span>
+        <span id="success-message"
+          >Thanks for completing the form. We’ll be in touch soon!</span
+        >
+      </div>
+      <div class="form-container">
+        <form method="" action="" name="form">
+          <h2>Contact Us</h2>
+          <div class="name-section">
+            <div class="fName-section">
+              <label for="">First Name<span class="star">*</span></label>
+              <input type="text" id="fName" class="required-field" />
+              <p class="error hidden color-red">This field is required</p>
+            </div>
+            <div class="lName-section">
+              <label for="">Last Name<span class="star">*</span></label>
+              <input type="text" id="lName" class="required-field" />
+              <p class="error hidden color-red">This field is required</p>
+            </div>
+          </div>
+          <div class="email-section">
+            <label for="email">Email Address<span class="star">*</span></label>
+            <input type="text" id="email" class="required-field" />
+            <p class="hidden color-red" id="error-email">
+              Please enter a valid email address
+            </p>
             <p class="error hidden color-red">This field is required</p>
           </div>
-          <div class="lName-section">
-            <label for="">Last Name<span class="star">*</span></label>
-            <input type="text" id="lName" class="required-field" />
-            <p class="error hidden color-red">This field is required</p>
+          <div class="query-section">
+            <p>Query Type<span class="star">*</span></p>
+
+            <div class="radio-btn-section">
+              <div
+                class="query-section__query enquiry-section"
+                id="enquiry-section"
+              >
+                <input
+                  type="radio"
+                  name="query-selection"
+                  id="general-enquiry"
+                />
+                <label for="general-enquiry">General Enquiry</label>
+              </div>
+              <div
+                class="query-section__query support-section"
+                id="support-section"
+              >
+                <input
+                  type="radio"
+                  name="query-selection"
+                  id="support-request"
+                />
+                <label for="support-request">Support Request</label>
+              </div>
+            </div>
+            <p class="hidden color-red" id="radio-error">
+              Please select a query type
+            </p>
           </div>
-        </div>
-        <div class="email-section">
-          <label for="email">Email Address<span class="star">*</span></label>
-          <input type="text" id="email" class="required-field" />
-          <p class="hidden">Please enter a valid email address</p>
+          <div class="message-section">
+            <label for="">Message<span class="star">*</span></label>
+            <textarea class="required-field" id="message-text"></textarea>
+          </div>
           <p class="error hidden color-red">This field is required</p>
-        </div>
-        <div class="query-section">
-          <p>Query Type<span class="star">*</span></p>
 
-          <div class="radio-btn-section">
-            <div
-              class="query-section__query enquiry-section"
-              id="enquiry-section"
-            >
-              <input type="radio" name="query-selection" id="general-enquiry" />
-              <label for="general-enquiry">General Enquiry</label>
-            </div>
-            <div
-              class="query-section__query support-section"
-              id="support-section"
-            >
-              <input type="radio" name="query-selection" id="support-request" />
-              <label for="support-request">Support Request</label>
-            </div>
+          <div class="consent-section">
+            <input type="checkbox" name="" id="submit-checkbox" />
+            <label for="submit-checkbox"
+              >I consent to being contacted by the team
+              <span class="star">*</span>
+            </label>
           </div>
-          <p class="hidden color-red" id="radio-error">
-            Please select a query type
+          <p class="hidden color-red" id="consent-error">
+            To submit this form, please consent to being contacted
           </p>
-        </div>
-        <div class="message-section">
-          <label for="">Message<span class="star">*</span></label>
-          <textarea class="required-field" id="message-text"></textarea>
-        </div>
-        <p class="error hidden color-red">This field is required</p>
-
-        <div class="consent-section">
-          <input type="checkbox" name="" id="submit-checkbox" />
-          <label for="submit-checkbox"
-            >I consent to being contacted by the team
-            <span class="star">*</span>
-          </label>
-        </div>
-        <p class="hidden color-red" id="consent-error">
-          To submit this form, please consent to being contacted
-        </p>
-        <button class="btn-submit" id="btn-submit" type="button">Submit</button>
-        <p class="hidden">Message Sent!</p>
-        <p class="color-red hidden">
-          Thanks for completing the form. We'll be in touch soon!
-        </p>
-      </form>
-    </div>
+          <button class="btn-submit" id="btn-submit" type="button">
+            Submit
+          </button>
+          <p class="hidden">Message Sent!</p>
+          <p class="color-red hidden">
+            Thanks for completing the form. We'll be in touch soon!
+          </p>
+        </form>
+      </div>
+    </main>
     <script src="app.js"></script>
   </body>
 </html>

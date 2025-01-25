@@ -1,20 +1,26 @@
 const enquirySection = document.getElementById("enquiry-section");
 const supportSection = document.getElementById("support-section");
+const successMessage = document.getElementById("success-message-section");
 
 const radioGeneralEnquiry = document.getElementById("general-enquiry");
 const radioSupportRequest = document.getElementById("support-request");
 
 const submitButton = document.getElementById("btn-submit");
 const checkBox = document.getElementById("submit-checkbox");
+const radioDivs = document.querySelectorAll(".query-section__query");
 
 const consentError = document.getElementById("consent-error");
 const requiredField = document.querySelectorAll(".required-field");
 const erroR = document.querySelectorAll(".error");
-const radioDivs = document.querySelectorAll(".query-section__query");
+
 const radioError = document.getElementById("radio-error");
+const errorEmail = document.getElementById("error-email");
 
 const firstName = document.getElementById("fName");
 const lastName = document.getElementById("lName");
+const emailInput = document.getElementById("email");
+
+submitButton.addEventListener("click", checkValidity);
 
 const changeRadioBg = () => {
   let radioDivArray = [];
@@ -42,24 +48,16 @@ const changeRadioBg = () => {
   });
 };
 
-//old method for radio buttons.
-// radioGeneralEnquiry.onclick = function () {
-//   if (radioSupportRequest.checked === true) {
-//     radioSupportRequest.checked = false;
-//   }
-//   enquirySection.classList.add("bg-light-green");
-//   supportSection.classList.remove("bg-light-green");
-// };
+function validateEmail(emailField) {
+  var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  console.log(emailField.value);
+  if (reg.test(emailField.value) == false) {
+    alert("Invalid Email Address");
+    return false;
+  }
 
-// radioSupportRequest.onclick = function () {
-//   if (radioGeneralEnquiry.checked === true) {
-//     radioGeneralEnquiry.checked = false;
-//   }
-//   enquirySection.classList.remove("bg-light-green");
-//   supportSection.classList.add("bg-light-green");
-// };
-
-submitButton.addEventListener("click", checkValidity);
+  return true;
+}
 
 function checkValidity() {
   let valid = true;
@@ -91,9 +89,20 @@ function checkValidity() {
   } else {
     consentError.classList.add("hidden");
   }
+  //store a function in varaible which returns a boolean
+  // to determine if the email is valid.
+  emailValid = validateEmail(emailInput);
+  if (!emailValid) {
+    valid = false;
+    errorEmail.classList.remove("hidden");
+  } else {
+    errorEmail.classList.add("hidden");
+  }
 
   //send email if all is valid.
+  // and display toast success message.
   if (valid == true) {
+    successMessage.style.display = "block";
     sendMail();
   }
 }
@@ -119,3 +128,21 @@ function sendMail() {
 }
 
 changeRadioBg();
+
+//old method for radio buttons.
+
+// radioGeneralEnquiry.onclick = function () {
+//   if (radioSupportRequest.checked === true) {
+//     radioSupportRequest.checked = false;
+//   }
+//   enquirySection.classList.add("bg-light-green");
+//   supportSection.classList.remove("bg-light-green");
+// };
+
+// radioSupportRequest.onclick = function () {
+//   if (radioGeneralEnquiry.checked === true) {
+//     radioGeneralEnquiry.checked = false;
+//   }
+//   enquirySection.classList.remove("bg-light-green");
+//   supportSection.classList.add("bg-light-green");
+// };
